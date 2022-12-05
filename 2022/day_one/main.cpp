@@ -22,7 +22,6 @@ int main(){
         if (prevElf > bestElf){
             bestElf = prevElf;
         }
-        
     }
     myFile.close();
     std::cout<<"The best elf carries: "<<bestElf;
