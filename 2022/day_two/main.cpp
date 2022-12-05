@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+int top3[3] = {};
 std::ifstream myFile;
 std::string line;
 bool bFile = true, bCount = false;
@@ -19,10 +19,12 @@ int main(){
             kcal = 0;
         }
         
-        if (prevElf > bestElf){
-            bestElf = prevElf;
+        bestElf = prevElf;
+        for (int i = 0; i < 3; i++){
+            if (prevElf > bestElf){
+                top3[i] = bestElf;
+            }
         }
-        
     }
     myFile.close();
     std::cout<<"The best elf carries: "<<bestElf;
