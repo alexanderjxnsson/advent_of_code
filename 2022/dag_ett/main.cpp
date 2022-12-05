@@ -22,17 +22,19 @@ int main(){
         }
     }
     
-    while (bCount == true){
+     while (bCount == true){
         while (std::getline(myFile, line))
         {
             kcal += std::stoi(line);
             if (line == "\n"){
                 prevElf = kcal;
-                kcal = 0;
-                if (){
-                    
+                if (prevElf > bestElf){
+                    bestElf = prevElf;
                 }
+                
+                kcal = 0;
             }
+            
         }
     }
 
