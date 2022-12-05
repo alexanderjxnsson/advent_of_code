@@ -11,14 +11,13 @@ int main(){
     myFile.open("file.txt");
     
     while (std::getline(myFile, line)){
+        std::cout<<line<<std::endl;
         kcal += std::stoi(line);
-        if (line == "\n"){
-            prevElf = kcal;
-            if (prevElf > bestElf){
-                bestElf = prevElf;
-            }
-            kcal = 0;
+        prevElf = kcal;
+        if (prevElf > bestElf){
+            bestElf = prevElf;
         }
+        kcal = 0;
     }
     myFile.close();
     std::cout<<"The best elf carries: "<<bestElf;
