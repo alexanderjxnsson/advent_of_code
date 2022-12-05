@@ -12,7 +12,8 @@ int main(){
     
     while (std::getline(myFile, line)){
         std::cout<<line<<std::endl;
-        kcal += std::stoi(line);
+        kcal = std::stoi(line);
+        kcal += kcal;
         prevElf = kcal;
         if (prevElf > bestElf){
             bestElf = prevElf;
