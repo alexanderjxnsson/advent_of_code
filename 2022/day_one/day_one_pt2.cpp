@@ -3,12 +3,14 @@
 #include <string>
 #include <vector>
 #include <bits/stdc++.h>
+
 std::vector<int> elfVector;
 int topThreeElfs;
 std::ifstream myFile;
 std::string line;
 bool bFile = true, bCount = false;
 int bestElf = 0, kcal = 0, prevElf = 0;
+
 
 int main(){
     myFile.open("file.txt");

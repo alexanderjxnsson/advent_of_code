@@ -24,6 +24,6 @@ int main(){
         }
     }
     myFile.close();
-    std::cout<<"The best elf carries: "<<bestElf;
+    std::cout<<"The best elf carries: "<<bestElf<<std::endl;
     return 0;   
 }
