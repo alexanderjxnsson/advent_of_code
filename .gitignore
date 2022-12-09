@@ -1,9 +1,10 @@
 adventure_of_code/*/*/.exe
 adventure_of_code/*/*/a.out
 adventure_of_code/*/*/a.exe
+adventure_of_code/*/*.vscode
 
-*.exe
+2022/day_two/day_two
 
 *.out
 
-2022/dag_ett/main
+2022/day_two/day_two_pt2

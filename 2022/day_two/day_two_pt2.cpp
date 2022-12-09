@@ -27,35 +27,35 @@ int main(){
     while (std::getline(myFile, line)){
         opponent = line.at(0);
         me = line.at(2);
-        
+        // Loss
         if(me == ROCK_ME && opponent == ROCK_OP){
-            my_score += (1 + 3);
+            my_score += 3;
         }
         else if(me == ROCK_ME && opponent == PAPER_OP){
             my_score += 1;
         }
         else if(me == ROCK_ME && opponent == SCISS_OP){
-            my_score += 1;
+            my_score += 2;
         }
-        
+        // Draw
         if(me == PAPER_ME && opponent == ROCK_OP){
-            my_score += (2 + 3);
+            my_score += 1 + 3;
         }
         if(me == PAPER_ME && opponent == PAPER_OP){
-            my_score += (2 + 3);
+            my_score += 2 + 3;
         }
         if(me == PAPER_ME && opponent == SCISS_OP){
-            my_score += (2 + 3);
+            my_score += 3 + 3;
         }
-        
+        // Win
         if(me == SCISS_ME && opponent == ROCK_OP){
-            my_score += (3 + 6);
+            my_score += 2 + 6;
         }
         if(me == SCISS_ME && opponent == PAPER_OP){
-            my_score += (3 + 6);
+            my_score += 3 + 6;
         }
         if(me == SCISS_ME && opponent == SCISS_OP){
-            my_score += (3 + 6);
+            my_score += 1 + 6;
         }
     }
     myFile.close();
