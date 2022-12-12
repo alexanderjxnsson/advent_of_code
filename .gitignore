@@ -8,3 +8,5 @@ adventure_of_code/*/*.vscode
 *.out
 
 2022/day_two/day_two_pt2
+
+*.exe
