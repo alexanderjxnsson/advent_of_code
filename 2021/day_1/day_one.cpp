@@ -2,17 +2,16 @@
 #include <fstream>
 #include <string>
 #include <vector>
-std::ifstream fin;
-std::ofstream fout;
+std::ifstream file;
 std::string fileName = "file.txt", line;
 int depthValue, measurementCounter = 0;
 std::vector<int> inputVector;
 
 
 int main() {
-	fin.open(fileName, std::ifstream::in);
-    if (fin.is_open()){
-        while (getline(fin, line, '\n')){
+	file.open(fileName, std::ifstream::in);
+    if (file.is_open()){
+        while (getline(file, line, '\n')){
             depthValue = stoi(line);
             inputVector.push_back(depthValue);
         }
