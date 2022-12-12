@@ -1,27 +1,28 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
 #include <string>
-
+#include <vector>
+std::ifstream fin;
+std::ofstream fout;
+std::string fileName = "file.txt", line;
+int depthValue, measurementCounter = 0;
 std::vector<int> inputVector;
-std::ifstream myFile;
-std::string line;
-int measurementCounter = 0;
 
-int main(){
-	myFile.open("file.txt");
-	
-	while (std::getline(myFile, line));{
-		inputVector.push_back(std::stoi(line));
-	}
-	myFile.close();
 
-	for (int i = 1; i < inputVector.size(); i++){
-		if (inputVector[i-1] < inputVector[i]){
-			measurementCounter++;
-		}
-	}
+int main() {
+	fin.open(fileName, std::ifstream::in);
+    if (fin.is_open()){
+        while (getline(fin, line, '\n')){
+            depthValue = stoi(line);
+            inputVector.push_back(depthValue);
+        }
+    }
+
+    for (int i = 0; i < inputVector.size(); i++){
+        if (inputVector[i] < inputVector[i+1]){
+            measurementCounter++;
+        }
+    }
 	
-	std::cout<<"Number of measuerments: "<<measurementCounter<<std::endl;
-	return 0;
+    std::cout<<measurementCounter<<std::endl;
 }
