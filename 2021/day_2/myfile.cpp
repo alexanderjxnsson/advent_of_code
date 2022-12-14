@@ -30,21 +30,15 @@ int main() {
     for (int i = 0; i < vSub.size(); i++){
         if (vSub[i].direction == "forward"){
             forwardCount += vSub[i].distance;
-            std::cout<<forwardCount<<std::endl;
         }
         else if (vSub[i].direction == "down"){
             depth += vSub[i].distance;
-            std::cout<<vSub[i].distance<<std::endl;
         }
         else if (vSub[i].direction == "up"){
             depth -= vSub[i].distance;
-            std::cout<<vSub[i].distance<<std::endl;
         }
     }
-    
-    //depthCount = downCount - upCount;
-    std::cout<<"Forward total: "<<forwardCount<<std::endl;
-    std::cout<<"Depth total: "<<depthCount<<std::endl;
-    answer = depthCount * forwardCount;
+
+    answer = depth * forwardCount;
     std::cout<<"The answer is: "<<answer<<std::endl;
 }
