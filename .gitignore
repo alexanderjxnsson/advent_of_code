@@ -10,3 +10,5 @@ adventure_of_code/*/*.vscode
 2022/day_two/day_two_pt2
 
 *.exe
+
+*.json
