@@ -1,18 +1,17 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
 
 std::ifstream myFile;
 std::string line, splitOne, splitTwo;
-int prio = 0, i, x;
+int prio = 0, i, x, strLength;
 
 int length;
 int main(){
 	myFile.open("file.txt");
 
 	while (std::getline(myFile, line)){
-		int strLength = line.size();
+		strLength = line.size();
 		splitOne = line.substr(0, strLength / 2);
 		splitTwo = line.substr(strLength / 2, strLength);
 
@@ -25,8 +24,6 @@ int main(){
 					else{
 						prio += splitOne[i] - 'a' + 1;
 					}
-					i = strLength / 2;
-					x = strLength / 2;
 				}
 			}
 		}
