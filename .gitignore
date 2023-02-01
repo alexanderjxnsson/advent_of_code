@@ -12,3 +12,7 @@ adventure_of_code/*/*.vscode
 *.exe
 
 *.json
+
+*.ilk
+
+*.pdb
