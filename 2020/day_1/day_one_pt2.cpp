@@ -28,11 +28,14 @@ int main(){
 				result = numVector[x] + numVector[i] + numVector[y];
 				if (result == 2020){
 					result = numVector[i] * numVector[x] * numVector[y];
-					std::cout<<"The result is: " << result << std::endl;
+					goto exitloop;
 				}
 			}
 		}
 	}
+	exitloop:
+
+	std::cout<<"The result is: " << result << std::endl;
 	myFile.close();
 	return 0;
 }
