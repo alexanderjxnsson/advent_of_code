@@ -10,7 +10,7 @@ std::string map[323], temp;
 int x = 0, result = 0, r = 0;
 
 int main(){
-    myFile.open("test.txt");
+    myFile.open("input.txt");
 
     while (std::getline(myFile, line)){
         map[r] = line;
@@ -20,12 +20,18 @@ int main(){
     for (int i = 0; i < 323; i++){
         temp = map[i];
         for (int i = 0; i < strLength; i++){   
-            x += 3;
-            if (tree[0] == temp[x])
+            if (tree[0] == temp[x]){
                 result++;
+                break;
+            }
+                
+            if(x >= strLength){
+                x = 0;
+                break;
+            }
+            x += 3;
         }
-        if(x >= line.size())
-            x = 0;
+        
     }
     
 
