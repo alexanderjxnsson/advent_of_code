@@ -7,22 +7,19 @@
 std::ifstream myFile;
 std::string line;
 std::string inputValue;
-std::string lowest[1000];
-std::string highest[1000];
+std::string lowest;
+std::string highest;
 std::string charToLookFor;
-std::string password[1000];
+std::string password;
 std::string temp;
 
-int iLowest[1000];
-int iHighest[1000];
+int iLowest;
+int iHighest;
 int numOfChars = 0;
 int result = 0;
 int totalChars = 0;
 int count = 0;
-int sizeArr = 0;
-
-int total = 0;
-int i = 0;
+int strLen = 0;
 
 int main(){
 	myFile.open("input.txt");
@@ -32,27 +29,28 @@ int main(){
 		int del2 = line.find(" ");
 		int del3 = line.find(":");
 
-		lowest[i] = line.substr(0, del1);
-		highest[i] = line.substr(del1 + 1, 2);
+		lowest = line.substr(0, del1);
+		highest = line.substr(del1 + 1, 2);
 		charToLookFor = line.substr(del3 - 1, 1);
-		password[i] = line.substr(del3 + 2);
+		password = line.substr(del3 + 2);
 
-		iLowest[i] = std::stoi(lowest[i]);
-		iHighest[i] = std::stoi(highest[i]);
-		numOfChars = iHighest[i] - iLowest[i];		
-		temp = password[i];
-		sizeArr = password[i].length();
+		iLowest = std::stoi(lowest);
+		iHighest = std::stoi(highest);
+		numOfChars = iHighest - iLowest;		
+		temp = password;
+		strLen = password.length();
 
-		for (int x = 0; x < sizeArr; x++){
+		for (int x = 0; x < strLen; x++){
 			if(charToLookFor[0] == temp[x])
 				count++;
 			}
 
-		if (count >= iLowest[i] && count <= iHighest[i]){
+		if (count >= iLowest && count <= iHighest){
 				result++;
 		}
 	}
 	std::cout<< "The result is: " << result << std::endl;
-
+	
+	myFile.close();
 	return 0;
 }
