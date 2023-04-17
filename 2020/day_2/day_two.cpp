@@ -9,7 +9,6 @@ std::string lowest;
 std::string highest;
 std::string charToLookFor;
 std::string password;
-std::string temp;
 
 int iLowest;
 int iHighest;
@@ -35,11 +34,10 @@ int main(){
 		iLowest = std::stoi(lowest);
 		iHighest = std::stoi(highest);
 		numOfChars = iHighest - iLowest;		
-		temp = password;
 		strLen = password.length();
 
 		for (int x = 0; x < strLen; x++){
-			if(charToLookFor[0] == temp[x])
+			if(charToLookFor[0] == password[x])
 				count++;
 			}
 
