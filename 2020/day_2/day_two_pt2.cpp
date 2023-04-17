@@ -35,16 +35,11 @@ int main(){
 		iLowest = std::stoi(lowest);
 		iHighest = std::stoi(highest);
 		numOfChars = iHighest - iLowest;		
-		temp = password;
 		strLen = password.length();
-
-		for (int x = 0; x < strLen; x++){
-			if(charToLookFor[0] == temp[x])
-				count++;
-			}
-
-		if (count >= iLowest && count <= iHighest){
-				result++;
+		
+		// XOR
+		if(!(charToLookFor[0] == password[iLowest - 1]) != !(charToLookFor[0] == password[iHighest -1])){
+			result++;
 		}
 	}
 	std::cout<< "The result is: " << result << std::endl;
