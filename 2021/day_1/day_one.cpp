@@ -2,14 +2,15 @@
 #include <fstream>
 #include <string>
 #include <vector>
+
 std::ifstream file;
-std::string fileName = "file.txt", line;
+std::string line;
 int depthValue, measurementCounter = 0;
 std::vector<int> inputVector;
 
 
 int main() {
-	file.open(fileName, std::ifstream::in);
+	file.open("input.txt", std::ifstream::in);
     if (file.is_open()){
         while (getline(file, line, '\n')){
             depthValue = stoi(line);
