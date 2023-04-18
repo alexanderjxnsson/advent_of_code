@@ -3,33 +3,35 @@
 #include <string>
 
 std::ifstream myFile;
-std::string line, splitOne, splitTwo;
-int prio = 0, i, x, strLength, length;
+std::string line1, line2, line3;
+int prio = 0, i, j, k;
+
 
 int main(){
-	myFile.open("file.txt");
+	myFile.open("input.txt");
 
-	while (std::getline(myFile, line)){
-		strLength = line.size();
-		
-		for(i = 0; i <= strLength / 2; i++){
-			for(x = 0; x <= strLength / 2; x++){
-				if(splitOne[i] == splitTwo[x]){
-					if(splitOne[i] < 'a'){
-						prio += splitOne[i] - 'A' + 27;
-					}
-					else{
-						prio += splitOne[i] - 'a' + 1;
-					}
-					i = strLength / 2;
-					x = strLength / 2;
-				}
+	while (std::getline(myFile, line1) && std::getline(myFile, line2) && std::getline(myFile, line3)){
+		for(i = 0; i <= line1.size(); i++){
+			for(j = 0; j <= line2.size(); j++){
+				for(k = 0; k <= line3.size(); k++){
+					if((line1[i] == line2[j]) && (line2[j] == line3[k])){
+						if(line1.at(i) < 'a'){
+							prio += line1.at(i) - 'A' + 27;
+						}
+						else{
+							prio += line1.at(i) - 'a' + 1;
+						}
+
+						i = line1.size();
+						j = line2.size();
+						k = line3.size();
+					}	
+				}		
 			}
 		}
 	}
-
 	
-	std::cout<<"The score is: "<<prio<<std::endl;
 	myFile.close();
+	std::cout<<"The score is: "<<prio<<std::endl;
 	return 0;
 }
