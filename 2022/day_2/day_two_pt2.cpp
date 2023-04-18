@@ -22,7 +22,7 @@ uint32_t my_score = 0;
         3 Draw
         6 Win */
 int main(){
-    myFile.open("file.txt");
+    myFile.open("input.txt");
     
     while (std::getline(myFile, line)){
         opponent = line.at(0);

@@ -3,9 +3,7 @@
 #include <vector>
 #include <string>
 
-std::ifstream fin;
-std::ofstream fout;
-std::string fileName = "input.txt";
+std::ifstream file;
 int forwardCount, upCount, downCount, intValue, stringToInt = 0, depthCount = 0, answer = 0, depth = 0;
 std::string fileValueString, fileValueInt;
 struct submarine{
@@ -17,10 +15,10 @@ struct submarine{
 std::vector<submarine> vSub;
 
 int main() {
-    fin.open(fileName, std::ifstream::in);
+    file.open("input.txt", std::ifstream::in);
 
-    while (getline(fin, fileValueString, ' ')){
-        getline(fin, fileValueInt, '\n');
+    while (getline(file, fileValueString, ' ')){
+        getline(file, fileValueInt, '\n');
         stringToInt = stoi(fileValueInt);
         tSub.direction = fileValueString;
         tSub.distance = stoi(fileValueInt);
