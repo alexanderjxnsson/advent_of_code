@@ -26,13 +26,11 @@ int main(){
 		int del2 = line.find(" ");
 		int del3 = line.find(":");
 
-		lowest = line.substr(0, del1);
-		highest = line.substr(del1 + 1, 2);
+		iLowest = std::stoi(line.substr(0, del1));
+		iHighest = std::stoi(line.substr(del1 + 1, 2));
 		charToLookFor = line.substr(del3 - 1, 1);
 		password = line.substr(del3 + 2);
-
-		iLowest = std::stoi(lowest);
-		iHighest = std::stoi(highest);
+		
 		numOfChars = iHighest - iLowest;		
 		strLen = password.length();
 
