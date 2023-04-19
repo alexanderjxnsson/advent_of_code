@@ -1,42 +1,35 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
 #include <string>
 
 std::ifstream file;
-int forwardCount, upCount, downCount, intValue, stringToInt = 0, depthCount = 0, answer = 0;
-std::string fileValueString, fileValueInt;
+int forwardCount, upCount, downCount, depthCount = 0, answer = 0;
+std::string lineDirection, lineValue;
+
 struct submarine{
     std::string direction;
     int distance;
-    std::string fileValueString, fileValueInt;
 }tSub;
 
-std::vector<submarine> vSub;
-
 int main() {
-    file.open("input", std::ifstream::in);
+    file.open("input.txt", std::ifstream::in);
 
-    while (getline(file, fileValueString, ' ')){
-        getline(file, fileValueInt, '\n');
-        stringToInt = stoi(fileValueInt);
-        tSub.direction = fileValueString;
-        tSub.distance = stoi(fileValueInt);
-        vSub.push_back(tSub);
+    while (getline(file, lineDirection, ' ')){
+        getline(file, lineValue, '\n');
+        tSub.direction = lineDirection;
+        tSub.distance = stoi(lineValue);
+
+        if (tSub.direction == "forward"){
+            forwardCount += tSub.distance;
+        }
+        else if (tSub.direction == "down"){
+            downCount += tSub.distance;
+        }
+        else if (tSub.direction == "up"){
+            upCount += tSub.distance;
+        }
     }
 
-    for (int i = 0; i < vSub.size(); i++){
-        if (vSub[i].direction == "forward"){
-            forwardCount += vSub[i].distance;
-        }
-        else if (vSub[i].direction == "down"){
-            downCount += vSub[i].distance;
-        }
-        else if (vSub[i].direction == "up"){
-            upCount += vSub[i].distance;
-        }
-    }
-    
     depthCount = downCount - upCount;
     std::cout<<"Forward total: "<<forwardCount<<std::endl;
     std::cout<<"Depth total: "<<depthCount<<std::endl;
