@@ -6,33 +6,41 @@ std::ifstream file;
 int forwardCount, upCount, downCount, depthCount = 0, answer = 0;
 std::string lineDirection, lineValue;
 
+/* 
+    down 10:    aim += 10;
+    up 5:       aim -= 5;
+    forward 5:  forward += 5 && down = aim * 5;
+
+ */
+
 struct submarine{
     std::string direction;
-    int distance;
+    int distance = 0, aim = 0, horisontalPos = 0, depth = 0;
 }tSub;
 
 int main() {
     file.open("input.txt", std::ifstream::in);
 
-    while (getline(file, lineDirection, ' ')){
+    while (getline(file, tSub.direction, ' ')){
         getline(file, lineValue, '\n');
-        tSub.direction = lineDirection;
         tSub.distance = stoi(lineValue);
-
+ 
         if (tSub.direction == "forward"){
-            forwardCount += tSub.distance;
+            tSub.horisontalPos += tSub.distance;
+            tSub.depth += tSub.aim * tSub.distance;
+            //std::cout << "Forward horizontal: " << tSub.horisontalPos << " Depth: " << tSub.depth << std::endl;
         }
         else if (tSub.direction == "down"){
-            downCount += tSub.distance;
+            tSub.aim += tSub.distance;
+            //std::cout << "Down aim: " << tSub.aim << std::endl;
         }
         else if (tSub.direction == "up"){
-            upCount += tSub.distance;
+            tSub.aim -= tSub.distance;
+            //std::cout << "Up aim: " << tSub.aim << std::endl;
         }
     }
 
-    depthCount = downCount - upCount;
-    std::cout<<"Forward total: "<<forwardCount<<std::endl;
-    std::cout<<"Depth total: "<<depthCount<<std::endl;
-    answer = depthCount * forwardCount;
+    std::cout << "Final horizontal: " << tSub.horisontalPos << " Final depth: " << tSub.depth << std::endl;
+    answer = tSub.horisontalPos * tSub.depth;
     std::cout<<"The answer is: "<<answer<<std::endl;
 }
